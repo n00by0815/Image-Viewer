@@ -18,7 +18,7 @@ class MultiListbox(tk.Frame):
     def __init__(self, master, lists):
         tk.Frame.__init__(self, master)
         self.lists = []
-        print(lists)
+        #print(lists)
         for l,w in lists:
             frame = tk.Frame(self)
             frame.pack(side='left', expand='yes', fill='both')

@@ -41,6 +41,7 @@ class MultiListbox(tk.Frame):
         self.lists[0]['yscrollcommand']=sb.set
 
     def _select(self, event):
+        print('on _select({})'.format(event.type))
         w = event.widget
         curselection = w.curselection()
 

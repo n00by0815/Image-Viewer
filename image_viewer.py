@@ -46,6 +46,7 @@ class MultiListbox(tk.Frame):
         curselection = w.curselection()
 
         if curselection:
+            self.event_generate('<<MultiListboxSelect>>', when='tail')
             self.selection_clear(0, self.size())
             self.selection_set(curselection[0])
 
@@ -144,7 +145,7 @@ class ClassTwo:
         self.available_images_lb = MultiListbox(self.frame, (('stuff1', 0), ('stuff1', 0), \
         ('stuff1', 0), ('stuff1', 0), ('stuff1', 0) ))
         self.available_images_lb.grid(row = 1, column = 1)
-        #self.available_images_lb.bind('<<ListboxSelect>>', self.print_stuff_two)
+        self.available_images_lb.bind('<<MultiListboxSelect>>', self.print_stuff_two)
         #Button
         exit_button = tk.Button(self.frame, text = "Quit", command = self.frame.quit)
         exit_button.grid(row = 2, column = 1, padx = 20, pady = 10)
@@ -170,7 +171,7 @@ class ClassThree:
         self.image_parts_info_lb = MultiListbox(self.frame, (('stuff1', 0), ('stuff1', 0), \
         ('stuff1', 0), ('stuff1', 0), ('stuff1', 0) ))
         self.image_parts_info_lb.grid(row = 1, column = 1)
-        #self.image_parts_info_lb.bind('<<ListboxSelect>>', self.print_stuff_three)
+        self.image_parts_info_lb.bind('<<MultiListboxSelect>>', self.print_stuff_three)
 
     def fill_imageparts_listbox(self):
         self.image_parts_info_lb.delete(0, 'end')
